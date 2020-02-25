@@ -51,3 +51,7 @@ for tool in tools:
     print(f"{tool} is a tool.")
 for st in special_tools:
     print(f"{st} is a special tool.")
+
+# Print the position of given elements in tools list.
+position = [tools.index('Key'), tools.index('Paper clip')]
+print(f"\n{position}")
