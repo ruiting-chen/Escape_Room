@@ -6,5 +6,5 @@ README tasks:
     ☐ Add License, Contributing, Acknowledgement
 
 ChangeLog tasks:
-    ☐ Create ChangeLog
+    ✔ Create ChangeLog @done(2020-03-10 08:29) @project(ChangeLog tasks)
     ☐ Add versions of changes to ChangeLog
