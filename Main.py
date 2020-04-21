@@ -99,23 +99,43 @@ location = {
 #     if loc_name == 'painting':
 #         print(f"\tBox: {detail['box']}")
 
+Health = 0
+Search = 0
+start = input("Do you want to start the game?").lower().strip()
+if start == "yes":
+    Health = 1
 
-ask = input("What action do you want to take?")
-if ask == "Search" or ask == "search":
-    a_s = input("\nWhere do you want to search?")
-    a_s = a_s.lower()
-    if a_s in location.keys():
-        print("\nY")
+if Health == 1:
+    print("\nYou can take 4 actions in this game:")
+    print("\tSearch\n\tUse\n\tTake\n\tTansform")
+
+while Health == 1:
+    ask = input("\nWhat action do you want to take?").lower().strip()
+    if ask == "search":
+        Search = 1
+        while Search == 1:
+            a_search = input("\nWhere do you want to search?").lower().strip()
+            if a_search in location.keys():
+                print("\nYes")
+                Search = 0
+            else:
+                print("\nThis location is not in the room.The valid locations are:")
+                for _ in location:
+                    print(f"\t{_}")
+    elif ask == "use":
+        a_use = input("\nwhat do you want to use?").lower().strip()
+        if a_use in inventory.values():
+            print("\nYes")
+        else:
+            print("\nThis item is not in the room. The valid items are:")
+            for _, a in inventory.items():
+                for b in a.keys():
+                    print(f"\t{b}")
+    elif ask == "take":
+        print("Take")
+    elif ask == "transform":
+        print("Transform")
     else:
-        print("\nThis location is not in the room.The valid locations are:")
-        for _ in location:
-            print(f"\t{_}")
-elif ask == "Use" or ask == "use":
-    print("U")
-elif ask == "Take" or ask == "take":
-    print("T")
-elif ask == "Transform" or ask == "transform":
-    print("Tr")
-else:
-    print("Please enter a valid action word.\nValid actions:" +
-    "\n\tSearch\n\tUse\n\tTake\n\tTansform")
+        print("\nInvalid Action!")
+        print("Please enter a valid action word.\nValid actions:" +
+        "\n\tSearch\n\tUse\n\tTake\n\tTansform")
